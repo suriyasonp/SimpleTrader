@@ -29,6 +29,7 @@
             <RadioButton Grid.Column="1" Content="Portfolio" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static nav:ViewType.Portfolio}"/>
             <RadioButton Grid.Column="2" Content="Buy"/>
             <RadioButton Grid.Column="3" Content="Sell"/>
+            <RadioButton Grid.Column="3" Content="Info"/>
         </Grid>
     </Grid>
 </UserControl>
