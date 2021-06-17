@@ -16,11 +16,27 @@ namespace SimpleTrader.FinancialModelingPrepAPI.Services
         {
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync("https://financialmodelingprep.com/api/v3/quote/%5EGSPC?apikey=1ed128cab86b47b086ef17ff91eccb8f");
+                string uri = "https://financialmodelingprep.com/api/v3/quote/" + GetUriSuffix(indexType) + "?apikey=1ed128cab86b47b086ef17ff91eccb8f";
+                HttpResponseMessage response = await client.GetAsync(uri);
                 string jsonReponse = await response.Content.ReadAsStringAsync();
-
-                MajorIndex majorIndex = JsonConvert.DeserializeObject<MajorIndex>(jsonReponse.Substring(0,jsonReponse.Length-2));
+                jsonReponse = jsonReponse.Substring(1, jsonReponse.Length - 2);
+                MajorIndex majorIndex = JsonConvert.DeserializeObject<MajorIndex>(jsonReponse);
                 return majorIndex;
+            }
+        }
+
+        private string GetUriSuffix(MajorIndexType indexType)
+        {
+            switch (indexType)
+            {
+                case MajorIndexType.Apple:
+                    return "AAPL";
+                case MajorIndexType.Facebook:
+                    return "FB";
+                case MajorIndexType.SP500:
+                    return "SP500";
+                default:
+                    return "AAPL";
             }
         }
     }

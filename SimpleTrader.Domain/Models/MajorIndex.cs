@@ -8,8 +8,8 @@ namespace SimpleTrader.Domain.Models
 {
     public enum MajorIndexType
     {
-        DowJoines,
-        Nasdaq,
+        Apple,
+        Facebook,
         SP500
     }
     public class MajorIndex
