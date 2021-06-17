@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTrader.EntityFramewor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTrader.WPF", "SimpleTrader.WPF\SimpleTrader.WPF.csproj", "{09E60975-A050-4678-838F-2171F3D66B0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTrader.FinancialModelingPrepAPI", "SimpleTrader.FinancialModelingPrepAPI\SimpleTrader.FinancialModelingPrepAPI.csproj", "{FDCB6F55-3A0C-4824-AFE0-F7096C2BB304}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTrader.FinancialModelingPrepAPI", "SimpleTrader.FinancialModelingPrepAPI\SimpleTrader.FinancialModelingPrepAPI.csproj", "{FDCB6F55-3A0C-4824-AFE0-F7096C2BB304}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7B2CDB6B-9725-4458-BFC1-D653774FAB39}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
