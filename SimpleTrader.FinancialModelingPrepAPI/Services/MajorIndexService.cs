@@ -17,6 +17,7 @@ namespace SimpleTrader.FinancialModelingPrepAPI.Services
                 string jsonReponse = await response.Content.ReadAsStringAsync();
                 jsonReponse = jsonReponse.Substring(1, jsonReponse.Length - 2);
                 MajorIndex majorIndex = JsonConvert.DeserializeObject<MajorIndex>(jsonReponse);
+                majorIndex.Type = indexType;
                 return majorIndex;
             }
         }
@@ -29,8 +30,8 @@ namespace SimpleTrader.FinancialModelingPrepAPI.Services
                     return "AAPL";
                 case MajorIndexType.Facebook:
                     return "FB";
-                case MajorIndexType.SP500:
-                    return "SP500";
+                case MajorIndexType.GOOG:
+                    return "GOOG";
                 default:
                     return "AAPL";
             }
