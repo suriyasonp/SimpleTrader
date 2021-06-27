@@ -32,14 +32,14 @@ namespace SimpleTrader.WPF.ViewModels
             }
         }
 
-        private MajorIndex _goog;
-        public MajorIndex GOOG
+        private MajorIndex _google;
+        public MajorIndex Google
         {
-            get { return _goog; }
+            get { return _google; }
             set
             {
-                _goog = value;
-                OnPropertyChanged(nameof(GOOG));
+                _google = value;
+                OnPropertyChanged(nameof(Google));
             }
         }
 
@@ -74,11 +74,11 @@ namespace SimpleTrader.WPF.ViewModels
                 }
             });
 
-            _majorIndexService.GetMajorIndex(MajorIndexType.GOOG).ContinueWith(task =>
+            _majorIndexService.GetMajorIndex(MajorIndexType.Google).ContinueWith(task =>
             {
                 if (task.Exception == null)
                 {
-                    GOOG = task.Result;
+                    Google = task.Result;
                 }
             });
         }

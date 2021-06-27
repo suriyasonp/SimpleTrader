@@ -10,7 +10,7 @@ namespace SimpleTrader.Domain.Models
     {
         Apple,
         Facebook,
-        GOOG
+        Google
     }
     public class MajorIndex
     {

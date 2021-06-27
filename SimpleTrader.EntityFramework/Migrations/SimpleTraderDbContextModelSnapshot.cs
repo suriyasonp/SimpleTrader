@@ -102,7 +102,7 @@ namespace SimpleTrader.EntityFramework.Migrations
                         .WithMany("AssetTransactions")
                         .HasForeignKey("AccountId");
 
-                    b.OwnsOne("SimpleTrader.Domain.Models.Stock", "Stock", b1 =>
+                    b.OwnsOne("SimpleTrader.Domain.Models.Asset", "Asset", b1 =>
                         {
                             b1.Property<int>("AssetTransactionId")
                                 .HasColumnType("int");
@@ -123,7 +123,7 @@ namespace SimpleTrader.EntityFramework.Migrations
 
                     b.Navigation("Account");
 
-                    b.Navigation("Stock");
+                    b.Navigation("Asset");
                 });
 
             modelBuilder.Entity("SimpleTrader.Domain.Models.Account", b =>

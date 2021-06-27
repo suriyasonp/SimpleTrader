@@ -10,13 +10,11 @@ namespace SimpleTrader.FinancialModelingPrepAPI.Services
     {
         public async Task<MajorIndex> GetMajorIndex(MajorIndexType indexType)
         {
-            using (HttpClient client = new HttpClient())
+            using (FinancialModelingPrepHttpClient client = new FinancialModelingPrepHttpClient())
             {
-                string uri = "https://financialmodelingprep.com/api/v3/quote/" + GetUriSuffix(indexType) + "?apikey=1ed128cab86b47b086ef17ff91eccb8f";
-                HttpResponseMessage response = await client.GetAsync(uri);
-                string jsonReponse = await response.Content.ReadAsStringAsync();
-                jsonReponse = jsonReponse.Substring(1, jsonReponse.Length - 2);
-                MajorIndex majorIndex = JsonConvert.DeserializeObject<MajorIndex>(jsonReponse);
+                string uri = "quote/" + GetUriSuffix(indexType) + "?apikey=1ed128cab86b47b086ef17ff91eccb8f";
+
+                MajorIndex majorIndex = await client.GetAsync<MajorIndex>(uri);
                 majorIndex.Type = indexType;
                 return majorIndex;
             }
@@ -30,10 +28,10 @@ namespace SimpleTrader.FinancialModelingPrepAPI.Services
                     return "AAPL";
                 case MajorIndexType.Facebook:
                     return "FB";
-                case MajorIndexType.GOOG:
+                case MajorIndexType.Google:
                     return "GOOG";
                 default:
-                    return "AAPL";
+                    throw new System.Exception("MajorIndexType does not have a suffix defined");
             }
         }
     }

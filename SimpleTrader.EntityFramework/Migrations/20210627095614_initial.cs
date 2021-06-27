@@ -52,8 +52,8 @@ namespace SimpleTrader.EntityFramework.Migrations
                     Id = table.Column<int>(type: "int", nullable: false),
                     AccountId = table.Column<int>(type: "int", nullable: true),
                     IsPurchase = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    Stock_Symbol = table.Column<string>(type: "text", nullable: true),
-                    Stock_PricePerShare = table.Column<double>(type: "double", nullable: true),
+                    Asset_Symbol = table.Column<string>(type: "text", nullable: true),
+                    Asset_PricePerShare = table.Column<double>(type: "double", nullable: true),
                     ShareAmount = table.Column<int>(type: "int", nullable: false),
                     DateProcessed = table.Column<DateTime>(type: "datetime", nullable: false)
                 },
